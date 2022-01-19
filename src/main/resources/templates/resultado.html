@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}"></title>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+	integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+		<a th:href="@{/form}" class="btn btn-success btn-lg my-3">Volver</a>
+		<ul class="list-group my-2">
+			<li th:text="${titulo}" class="list-group-item active"></li>
+			<li th:text="${usuario.username}" class="list-group-item"></li>
+			<li th:text="${usuario.nombre}" class="list-group-item"></li>
+			<li th:text="${usuario.apellido}" class="list-group-item"></li>
+			<li th:text="${usuario.password}" class="list-group-item"></li>
+			<li th:text="${usuario.email}" class="list-group-item"></li>
+			<li th:text="${usuario.identificador}" class="list-group-item"></li>
+			<li th:text="${usuario.cuenta}" class="list-group-item"></li>
+			<li th:text="${usuario.pais.id}" class="list-group-item"></li>
+			<li th:text="${usuario.pais.codigo}" class="list-group-item"></li>
+			<li th:text="${usuario.pais.nombre}" class="list-group-item"></li>
+
+			<li
+				th:text="${#calendars.format(usuario.fechaNacimiento,'dd-MM-yyyy')}"
+				class="list-group-item"></li>
+			<li th:text="'Habilitado '+ ${usuario.habilitar}"
+				class="list-group-item"></li>
+			<li th:text="'Género '+ ${usuario.genero}" class="list-group-item"></li>
+			<li th:text="'Valor oculto '+ ${usuario.valorSecreto}"
+				class="list-group-item"></li>
+		</ul>
+		<ul class="list-group my-3">
+		<li th:text="'Roles'" class="list-group-item active"></li>
+			<li th:each="role: ${usuario.roles}"
+				th:text="${role.id}+ ': ' + ${role.nombre} + '=> '+ ${role.role}"
+				class="list-group-item"></li>
+		</ul>
+	</div>
+</body>
+</html>
