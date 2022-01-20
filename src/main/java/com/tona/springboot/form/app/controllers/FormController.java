@@ -132,6 +132,8 @@ public class FormController {
 		usuario.setPais(new Pais(2,"MX","México"));
 		usuario.setRoles(Arrays.asList(new Role(2, "Usuario", "ROLE_USER"),new Role(3, "Moderador", "ROLE_MODERATOR")));
 		usuario.setEmail("t@t.com");
+		usuario.setUsername("chilaki");
+		usuario.setCuenta(666);
 		model.addAttribute("titulo", "Formulario de usuarios");
 		model.addAttribute("usuario", usuario);
 		
